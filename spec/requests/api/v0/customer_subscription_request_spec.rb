@@ -65,7 +65,7 @@ RSpec.describe "Customer Subscription Request" do
     expect(@customer_1.subscriptions.first.title).to eq("Weekly Subscription")
     expect(@customer_1.subscriptions.first.price).to eq(10)
     expect(@customer_1.subscriptions.first.frequency).to eq(7)
-    expect(@customer_1.customers_subscriptions.first.status).to eq("active")
+    expect(@customer_1.customer_subscriptions.first.status).to eq("active")
   end
 
   it "sends message showing that customer has been sucessfully unsubscribed from a tea subscription" do
@@ -83,10 +83,10 @@ RSpec.describe "Customer Subscription Request" do
     expect(@customer_1.subscriptions.first.title).to eq("Weekly Subscription")
     expect(@customer_1.subscriptions.first.price).to eq(10)
     expect(@customer_1.subscriptions.first.frequency).to eq(7)
-    expect(@customer_1.customers_subscriptions.first.status).to eq("cancelled")
+    expect(@customer_1.customer_subscriptions.first.status).to eq("cancelled")
   end
 
-  xit "should return all of a customer's subscriptions, both active and cancelled" do
+  it "should return all of a customer's subscriptions, both active and cancelled" do
     post "/api/v0/customers/#{@customer_1.id}/subscriptions/#{@subscription_1.id}"
     post "/api/v0/customers/#{@customer_1.id}/subscriptions/#{@subscription_2.id}"
     get "/api/v0/customers/#{@customer_1.id}/subscriptions"
@@ -121,12 +121,12 @@ RSpec.describe "Customer Subscription Request" do
   end
 
   xit "should return message if customer not found when looking for subscription" do
-    get "/api/v0/customers/45/subscriptions"
+    get "/api/v0/customers/77/subscriptions"
 
     error = JSON.parse(response.body, symbolize_names: true)
 
     expect(error).to eq({
-      error: "Couldn't find Customer with 'id'=45"
+      error: "Couldn't find Customer with 'id'=77"
     })
   end
 

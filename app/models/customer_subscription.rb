@@ -1,4 +1,4 @@
-class CustomersSubscription < ApplicationRecord
+class CustomerSubscription < ApplicationRecord
   belongs_to :customer
   belongs_to :subscription
   validates :status, presence: true

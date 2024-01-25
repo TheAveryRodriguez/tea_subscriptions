@@ -8,8 +8,8 @@ RSpec.describe Subscription, type: :model do
     it { should validate_numericality_of(:frequency) }
   end
   describe "relationships" do
-    it { should have_many :customers_subscriptions }
-    it { should have_many(:customers).through(:customers_subscriptions) }
+    it { should have_many :customer_subscriptions }
+    it { should have_many(:customers).through(:customer_subscriptions) }
 
     it { should have_many(:tea_subscriptions) }
     it { should have_many(:teas).through(:tea_subscriptions) }

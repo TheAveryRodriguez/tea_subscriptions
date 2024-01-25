@@ -9,8 +9,8 @@ class Subscription < ApplicationRecord
     cancelled: 1
   }
 
-  has_many :customers_subscriptions
-  has_many :customers, through: :customers_subscriptions
+  has_many :customer_subscriptions
+  has_many :customers, through: :customer_subscriptions
 
   has_many :tea_subscriptions
   has_many :teas, through: :tea_subscriptions
