@@ -3,5 +3,6 @@ class Customer < ApplicationRecord
   validates_uniqueness_of :email
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}
 
-  has_many :subscriptions
+  has_many :customers_subscriptions
+  has_many :subscriptions, through: :customers_subscriptions
 end

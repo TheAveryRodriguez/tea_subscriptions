@@ -9,6 +9,7 @@
           1,
           null,
           1,
+          1,
           null
         ]
       },
@@ -16,60 +17,6 @@
         "lines": [
           1,
           1,
-          null
-        ]
-      },
-      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/spec/models/subscription_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          2,
-          2,
-          2,
-          null,
-          1,
-          2,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/app/models/subscription.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/spec/models/tea_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          2,
-          2,
-          null,
           null
         ]
       },
@@ -86,19 +33,89 @@
           null
         ]
       },
-      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/spec/models/tea_subscription_spec.rb": {
+      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/app/models/subscription.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
           1,
           null,
           1,
           1,
-          2,
-          2,
+          null
+        ]
+      },
+      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/app/models/tea_subscription.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/app/controllers/api/v0/customers_subscriptions_controller.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/theaveryrodriguez/turing_work/4mod/intermission_work/tea_subscription/app/models/customers_subscription.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1706046068
+    "timestamp": 1706215248
   }
 }

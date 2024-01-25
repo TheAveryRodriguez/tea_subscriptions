@@ -12,6 +12,7 @@ RSpec.describe Customer, type: :model do
   end
 
   describe "relationships" do
-    it { should have_many :subscriptions }
+    it { should have_many :customers_subscriptions }
+    it { should have_many(:subscriptions).through(:customers_subscriptions) }
   end
 end

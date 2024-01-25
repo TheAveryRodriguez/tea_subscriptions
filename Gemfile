@@ -29,6 +29,7 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "pry"
+gem "jsonapi-serializers"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -43,7 +44,6 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec-rails"
   gem "launchy"
-  gem "jsonapi-serializers"
   gem "factory_bot_rails"
   gem "faker"
   gem "orderly"
