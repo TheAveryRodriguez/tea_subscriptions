@@ -95,32 +95,26 @@ RSpec.describe "Customer Subscription Request" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json).to have_key(:data)
-    expect(json[:data]).to be_an(Array)
-    expect(json[:data].count).to eq(2)
+    expect(json).to have_key(:object)
+    expect(json[:object]).to be_an(Array)
+    expect(json[:object].count).to eq(2)
 
-    json[:data].each do |subscription|
+    json[:object].each do |subscription|
       expect(subscription).to have_key(:id)
-      expect(subscription[:id]).to be_a(String)
+      expect(subscription[:id]).to be_a(Integer)
 
-      expect(subscription).to have_key(:type)
-      expect(subscription[:type]).to eq("subscription")
+      expect(subscription).to have_key(:title)
+      expect(subscription[:title]).to be_a(String)
 
-      expect(subscription).to have_key(:attributes)
-      expect(subscription[:attributes]).to be_a(Hash)
+      expect(subscription).to have_key(:price)
+      expect(subscription[:price]).to be_a(Integer)
 
-      expect(subscription[:attributes]).to have_key(:title)
-      expect(subscription[:attributes][:title]).to be_a(String)
-
-      expect(subscription[:attributes]).to have_key(:price)
-      expect(subscription[:attributes][:price]).to be_a(Float)
-
-      expect(subscription[:attributes]).to have_key(:frequency)
-      expect(subscription[:attributes][:frequency]).to be_a(String)
+      expect(subscription).to have_key(:frequency)
+      expect(subscription[:frequency]).to be_a(Integer)
     end
   end
 
-  xit "should return message if customer not found when looking for subscription" do
+  it "should return message if customer not found when looking for subscription" do
     get "/api/v0/customers/77/subscriptions"
 
     error = JSON.parse(response.body, symbolize_names: true)
@@ -130,23 +124,32 @@ RSpec.describe "Customer Subscription Request" do
     })
   end
 
-  xit "sould return error message if customer was not successfully unsubscribed" do
-    patch "/api/v0/customers/56/subscriptions/#{@subscription.id}"
+  it "should return error message if customer was not successfully unsubscribed" do
+    @customer_3 = Customer.create(
+      first_name: "Gojo",
+      last_name: "Satoru",
+      email: "Gojo@gmail.com",
+      address: "456 Infinite Domain, JP"
+    )
+
+    post "/api/v0/customers/#{@customer_3.id}/subscriptions/#{@subscription_1.id}"
+    patch "/api/v0/customers/#{@customer_3.id}/subscriptions/#{@subscription_1.id}"
+    patch "/api/v0/customers/#{@customer_3.id}/subscriptions/#{@subscription_1.id}"
 
     error = JSON.parse(response.body, symbolize_names: true)
 
     expect(error).to eq({
-      error: "Customer was not able to be unsubscribed. Please make sure the customer or subscription id is correct."
+      error: "Customer was not able to be unsubscribed."
     })
   end
 
-  xit "should return error if customr was not able to be subscribed" do
+  it "should return error if customr was not able to be subscribed" do
     post "/api/v0/customers/#{@customer_1.id}/subscriptions/45"
 
     error = JSON.parse(response.body, symbolize_names: true)
 
     expect(error).to eq({
-      error: "Customer was not able to be subscribed. Please make sure the customer or subscription id is correct."
+      error: ["Subscription must exist"]
     })
   end
 end

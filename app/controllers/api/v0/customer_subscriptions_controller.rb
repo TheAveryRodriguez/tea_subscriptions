@@ -1,6 +1,7 @@
 class Api::V0::CustomerSubscriptionsController < ApplicationController
   def index
     @customer = Customer.find(params[:customer_id])
+
     render json: SubscriptionSerializer.new(@customer.subscriptions)
   rescue ActiveRecord::RecordNotFound => exception
     render json: {error: exception.message}
@@ -23,7 +24,7 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
       @customer_subscription.cancelled!
       render json: {success: "Customer has been unsubscribed."}, status: 201
     else
-      render json: {error: @customer_subscription.errors.full_messages}, status: :unprocessable_entity
+      render json: {error: "Customer was not able to be unsubscribed."}, status: 400
     end
   end
 end
