@@ -2,7 +2,7 @@ class Api::V0::CustomerSubscriptionsController < ApplicationController
   def index
     @customer = Customer.find(params[:customer_id])
 
-    render json: SubscriptionSerializer.new(@customer.subscriptions)
+    render json: JSONAPI::Serializer.serialize(@customer.subscriptions, is_collection: true)
   rescue ActiveRecord::RecordNotFound => exception
     render json: {error: exception.message}
   end
